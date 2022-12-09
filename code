@@ -1,0 +1,157 @@
+#define D8 8
+
+#define D9 9
+
+#define D10 10
+
+#define D11 11
+
+#define O1 2
+
+#define O2 3
+
+#define O3 4
+
+#define O4 5
+
+
+void forward()
+
+{
+
+   digitalWrite(O1, HIGH);
+
+   digitalWrite(O2, LOW);
+
+   digitalWrite(O3, HIGH);
+
+   digitalWrite(O4, LOW);
+
+}
+
+
+void backward()
+
+{
+
+   digitalWrite(O1, LOW);
+
+   digitalWrite(O2, HIGH);
+
+   digitalWrite(O3, LOW);
+
+   digitalWrite(O4, HIGH); 
+
+}
+
+
+void left()
+
+{
+
+   digitalWrite(O1, HIGH);
+
+   digitalWrite(O2, LOW);
+
+   digitalWrite(O3, LOW);
+
+   digitalWrite(O4, LOW);
+
+}
+
+
+void right()
+
+{
+
+   digitalWrite(O1, LOW);
+
+   digitalWrite(O2, LOW);
+
+   digitalWrite(O3, HIGH);
+
+   digitalWrite(O4, LOW);
+
+}
+
+
+void Stop()
+
+{
+
+   digitalWrite(O1, LOW);
+
+   digitalWrite(02, LOW);
+
+   digitalWrite(O3, LOW);
+
+   digitalWrite(O4, LOW);
+
+}
+
+
+void setup() 
+
+{
+
+  pinMode(D8, INPUT);
+
+  pinMode(D9, INPUT);
+
+  pinMode(D10, INPUT);
+
+  pinMode(D11, INPUT);
+
+
+  pinMode(O1, OUTPUT);
+
+  pinMode(O2, OUTPUT);
+
+  pinMode(O3, OUTPUT);
+
+  pinMode(O4, OUTPUT);
+
+}
+
+
+void loop() 
+
+{
+
+
+  int x=digitalRead(D8);
+
+  int y=digitalRead(D9);
+
+  int p=digitalRead(D10);
+
+  int q=digitalRead(D11);
+
+ 
+if(x==0 && y==1 && p==0 && q==0) 
+{
+  forward();  
+}
+
+else if(x==0 && y==0 && p==1 && q==0)
+{
+  left();
+}
+
+else if(x==0 && y==1 && p==1 && q==0)
+{
+  right(); 
+}
+
+
+  else if(x==0 && y==0 && p==0 && q==1)
+{
+  backward(); 
+}
+
+
+   else if(x==1 && y==0 && p==1 && q==0)
+{
+  Stop(); 
+}
+}
